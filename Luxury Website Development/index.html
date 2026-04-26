@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Golden Touch Cleaning - Specialistische Reiniging. Hoogwaardige schoonmaakdiensten met oog voor detail, kwaliteit en perfectie. Gevel impregneren, hogedrukreiniging, glasbewassing en meer.">
+    <meta name="keywords" content="schoonmaak, gevel impregneren, hogedrukreiniging, glasbewassing, vloeronderhoud, premium cleaning">
+    <meta name="author" content="Golden Touch Cleaning">
+    <meta name="theme-color" content="#0A192F">
+    <title>Golden Touch Cleaning | Specialistische Reiniging</title>
+    
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ---------- CSS VARIABLES (LIGHT MODE DEFAULT) ---------- */
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --text-primary: #0A192F;
+            --text-secondary: #4a5a78;
+            --card-bg: #FFFFFF;
+            --border-light: rgba(0,0,0,0.05);
+            --shadow-sm: 0 10px 30px rgba(0,0,0,0.03);
+            --shadow-hover: 0 30px 50px rgba(0,0,0,0.1);
+            --nav-bg: transparent;
+            --nav-scrolled: rgba(10, 25, 47, 0.85);
+            --footer-bg: #0A192F;
+            --gold: #D4AF37;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.dark {
+            --bg-primary: #0A192F;
+            --bg-secondary: #11223b;
+            --text-primary: #F0F4FA;
+            --text-secondary: #b0c4de;
+            --card-bg: #13273e;
+            --border-light: rgba(255,255,255,0.08);
+            --shadow-sm: 0 10px 30px rgba(0,0,0,0.2);
+            --shadow-hover: 0 30px 50px rgba(0,0,0,0.3);
+            --nav-scrolled: rgba(10, 25, 47, 0.95);
+            --footer-bg: #05121f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        /* ✅ REMOVE ANY GAPS: html, body margins/paddings reset */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom easing */
+        :root {
+            --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+            --navy: #0A192F;
+            --gold: #D4AF37;
+            --gold-light: #e4c456;
+            --white: #FFFFFF;
+            --gray-bg: #F5F5F5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 64px 0; }
+            .container { padding: 0 24px; }
+        }
+
+        h1, h2, h3, h4, .logo-text, .modal-title, .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) { h2 { font-size: 2.2rem; } }
+
+        .section-subhead {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---------- HEADER (minimal, dark toggle only) ---------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 12px 32px;  /* reduced vertical padding */
+            transition: all 0.4s var(--ease-premium);
+            background: var(--nav-bg);
+        }
+        header.scrolled {
+            background: var(--nav-scrolled);
+            backdrop-filter: blur(12px);
+            padding: 8px 32px;   /* even smaller when scrolled */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: flex-end;  /* dark toggle to the right */
+            align-items: center;
+        }
+        /* Logo completely removed from header */
+        .logo-link {
+            display: none;
+        }
+        .dark-toggle {
+            cursor: pointer;
+            background: rgba(255,255,255,0.12);
+            border-radius: 40px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            transition: 0.3s;
+            color: var(--gold);
+            font-size: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .dark-toggle:hover {
+            background: var(--gold);
+            color: #0A192F;
+            transform: scale(1.05);
+            border-color: transparent;
+        }
+        @media (max-width: 768px) {
+            header { padding: 10px 20px; }
+            header.scrolled { padding: 6px 20px; }
+            .dark-toggle { width: 36px; height: 36px; font-size: 1rem; }
+        }
+
+        /* ✅ HERO SECTION - VIDEO BEHAVIOR UNTOUCHED (full cover with aspect ratio logic) */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #0a1120; /* fallback while loading */
+        }
+
+        /* Core cover technique: 16:9 aspect ratio driven scaling (PRESERVED) */
+        .hero iframe,
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 177.77vh;      /* 16/9 * 100vh = 177.77vh */
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            border: none;
+            pointer-events: none;
+            max-width: none;
+            max-height: none;
+            background: transparent;
+        }
+
+        /* For ultra-wide screens (wider than 16:9), scale based on width */
+        @media (min-aspect-ratio: 16/9) {
+            .hero iframe,
+            .hero video {
+                width: 100vw;
+                height: 56.25vw;   /* 9/16 * 100vw = 56.25vw */
+            }
+        }
+
+        /* Overlay & vignette for readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,25,47,0.65) 0%, rgba(10,25,47,0.4) 100%);
+            z-index: 1;
+        }
+        .hero-vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 120px rgba(0,0,0,0.3);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            width: 100%;
+            margin: 0 auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* NEW: Logo inside hero (large, centered, responsive) */
+        .hero-logo {
+            max-width: 280px;
+            width: 70%;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+            animation: fadeUpLogo 0.8s var(--ease-premium) 0.1s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeUpLogo {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-premium) 0.3s forwards;
+        }
+        .hero-sub {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-premium) 0.5s forwards;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: white;
+            padding: 14px 36px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.4s;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s var(--ease-premium) 0.7s forwards;
+        }
+        .hero-btn:hover, .btn-glow:hover {
+            background: #D4AF37;
+            color: #0A192F;
+            border-color: #D4AF37;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro & Cards */
+        .intro { text-align: center; background: var(--bg-primary); }
+        .intro-text { font-size: 1.8rem; font-weight: 400; line-height: 1.4; max-width: 900px; margin: 0 auto; color: var(--text-primary); }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.5s var(--ease-premium), box-shadow 0.4s, background 0.3s;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .service-card.animate-in { animation: slideUpFade 0.7s var(--ease-premium) forwards; }
+        @keyframes slideUpFade { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        .service-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s var(--ease-premium);
+        }
+        .service-card:hover .service-img { transform: scale(1.05); }
+        .service-info { padding: 28px 24px; }
+        .service-info h3 { font-size: 1.7rem; margin-bottom: 12px; font-family: 'Playfair Display', serif; color: var(--text-primary); }
+        .service-info p { color: var(--text-secondary); }
+
+        /* Why Choose Us (New Premium Section) */
+        .premium-advantages {
+            background: linear-gradient(145deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border-radius: 48px;
+            margin: 40px 0;
+        }
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .advantage-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--card-bg);
+            border-radius: 32px;
+            transition: all 0.4s var(--ease-premium);
+            box-shadow: var(--shadow-sm);
+        }
+        .advantage-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .advantage-card i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+        .advantage-card h4 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+        .advantage-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Trust Section (original) */
+        .trust-section { background: var(--bg-secondary); text-align: center; }
+        .trust-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; margin-top: 40px; }
+        .trust-item { flex: 1; min-width: 180px; }
+        .trust-number { font-size: 3.2rem; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--gold); }
+
+        /* Before After Slider - Enhanced */
+        .beforeafter-container { max-width: 900px; margin: 0 auto; position: relative; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-hover); }
+        .ba-wrapper { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #ddd; cursor: ew-resize; }
+        .ba-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .ba-after { width: 50%; overflow: hidden; z-index: 2; border-right: 3px solid var(--gold); }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 5px;
+            height: 100%;
+            background: var(--gold);
+            z-index: 5;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            box-shadow: 0 0 12px var(--gold-glow);
+            transition: box-shadow 0.2s;
+        }
+        .slider-handle:hover {
+            box-shadow: 0 0 20px var(--gold);
+        }
+        .ba-labels { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); padding: 8px 20px; border-radius: 40px; color: white; font-weight: 700; letter-spacing: 1px; z-index: 6; font-size: 0.9rem; border-left: 3px solid var(--gold); }
+        .ba-labels.right { left: auto; right: 20px; border-left: none; border-right: 3px solid var(--gold); }
+
+        /* Contact Section (Enhanced) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .contact-details p {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .contact-details i {
+            width: 42px;
+            height: 42px;
+            background: var(--gold);
+            color: #0A192F;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .whatsapp-highlight {
+            background: #25D36620;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #25D36640;
+        }
+        .map iframe { width: 100%; height: 300px; border-radius: 24px; border: none; }
+
+        /* Final CTA Banner */
+        .final-cta {
+            background: linear-gradient(135deg, #0A192F 0%, #10223b 100%);
+            text-align: center;
+            border-radius: 48px;
+            margin: 40px 0;
+            padding: 80px 40px;
+            color: white;
+        }
+        .final-cta h3 { font-size: 2.8rem; font-family: 'Playfair Display'; margin-bottom: 20px; }
+        .final-cta .hero-btn { background: var(--gold); color: #0A192F; border: none; margin-top: 20px; }
+
+        /* Floating Buttons Enhanced */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s var(--ease-premium);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+        .btn-wa { background: #25D366; }
+        .btn-phone { background: #0A192F; border: 1px solid var(--gold); }
+        .float-btn:hover { transform: scale(1.12) translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
+
+        /* Modal (unchanged but enhanced) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10,25,47,0.96);
+            backdrop-filter: blur(16px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 30px;
+        }
+        .modal.active { display: flex; animation: fadeModal 0.4s ease; }
+        @keyframes fadeModal { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content { max-width: 800px; background: var(--card-bg); border-radius: 32px; overflow: hidden; position: relative; }
+        .modal-img { width: 100%; height: 320px; object-fit: cover; }
+        .modal-body { padding: 32px 36px; }
+        .modal-body h3 { font-size: 2rem; font-family: 'Playfair Display', serif; color: var(--text-primary); }
+        .benefits-list { margin: 20px 0; list-style: none; }
+        .benefits-list li { padding-left: 28px; position: relative; margin-bottom: 10px; color: var(--text-secondary); }
+        .benefits-list li:before { content: "✨"; position: absolute; left: 0; color: var(--gold); }
+        .modal-wa-btn {
+            background: #25D366;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+        .modal-wa-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37,211,102,0.4); }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 32px;
+            cursor: pointer;
+            background: var(--card-bg);
+            width: 44px;
+            height: 44px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+
+        footer { background: var(--footer-bg); color: white; text-align: center; padding: 40px 20px; margin-top: 0; }
+
+        /* ✅ MOBILE FIXES: video untouched; logo responsive scaling */
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; text-align: center; }
+            .contact-details p { justify-content: center; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-sub { font-size: 1.2rem; }
+            .intro-text { font-size: 1.3rem; }
+            .final-cta h3 { font-size: 1.8rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .trust-grid { flex-direction: column; gap: 30px; }
+            
+            /* Hero video sizing remains untouched (CSS preserved above) */
+            .hero {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            .hero-logo {
+                max-width: 200px;
+                width: 60%;
+                margin-bottom: 1rem;
+            }
+            .hero-content {
+                width: 90%;
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Animation utils */
+        [data-animate="fade-up"] { opacity: 0; transform: translateY(35px); transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium); }
+        [data-animate="fade-up"].visible { opacity: 1; transform: translateY(0); }
+        [data-animate="slide-left"] { opacity: 0; transform: translateX(-40px); transition: all 0.7s var(--ease-premium); }
+        [data-animate="slide-left"].visible { opacity: 1; transform: translateX(0); }
+        [data-animate="slide-right"] { opacity: 0; transform: translateX(40px); transition: all 0.7s var(--ease-premium); }
+        [data-animate="slide-right"].visible { opacity: 1; transform: translateX(0); }
+    </style>
+</head>
+<body>
+
+<header id="mainHeader">
+    <div class="header-inner">
+        <div class="dark-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section - Video behavior unchanged, logo now placed inside hero content -->
+    <section class="hero">
+        <iframe class="hero-video"
+            src="https://player.vimeo.com/video/1186258033?background=1&autoplay=1&loop=1&muted=1&byline=0&portrait=0&title=0"
+            allow="autoplay; fullscreen"
+            frameborder="0">
+        </iframe>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+            <!-- Logo image inside hero (centered, responsive) -->
+            <img src="assets/logo.png" alt="Golden Touch Cleaning" class="hero-logo" onerror="this.onerror=null; this.src='logo2.png';">
+            <h1 class="hero-title">Golden Touch Cleaning</h1>
+            <p class="hero-sub">Uw woning verdient de gouden afwerking.</p>
+            <a href="#contact" class="hero-btn btn-glow">Vraag een offerte aan</a>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container" data-animate="fade-up">
+            <p class="intro-text">Wij zijn Golden Touch Cleaning.<br>Wij leveren hoogwaardige schoonmaakdiensten met oog voor detail, kwaliteit en perfectie.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview with REAL IMAGES -->
+    <section id="services">
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Onze Diensten</h2>
+            <p class="section-subhead" data-animate="fade-up" style="text-align:center;">Premium oplossingen voor elk oppervlak</p>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <!-- NEW Premium Advantages Section (Why Choose Us) -->
+    <section class="premium-advantages">
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Waarom Golden Touch?</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-gem"></i><h4>Premium Kwaliteit</h4><p>Wij gebruiken alleen de beste materialen en technieken voor een perfect resultaat.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-clock"></i><h4>Stipt & Betrouwbaar</h4><p>Op tijd ter plaatse, snelle uitvoering zonder in te leveren op kwaliteit.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-shield-alt"></i><h4>100% Garantie</h4><p>Wij staan achter ons werk met volledige klanttevredenheidsgarantie.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-leaf"></i><h4>Milieubewust</h4><p>Duurzame, milieuvriendelijke reinigingsmiddelen voor een veilige omgeving.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section (original stats) -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 data-animate="fade-up">Onze Expertise in Cijfers</h2>
+            <div class="trust-grid">
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">500+</div><p>tevreden klanten</p></div>
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">24/7</div><p>Snelle service</p></div>
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">100%</div><p>Garantie</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before After Slider (Real Image) -->
+    <section>
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Voor & Na</h2>
+            <div class="beforeafter-container" data-animate="fade-up">
+                <div class="ba-wrapper" id="baSlider">
+                    <img class="ba-img" src="assets/after-wall1.png" alt="voor">
+                    <div class="ba-img ba-after" id="afterImage"><img src="assets/before-wall2.png" style="width:100%; height:100%; object-fit:cover;" alt="na"></div>
+                    <div class="slider-handle" id="sliderHandle"></div>
+                    <div class="ba-labels">VOOR</div>
+                    <div class="ba-labels right">NA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-animate="fade-up">Neem contact op</h2>
+            <div class="contact-grid">
+                <div class="contact-details" data-animate="slide-left">
+                    <p><i class="fas fa-phone-alt"></i> +31 20 123 4567</p>
+                    <p><i class="fab fa-whatsapp"></i> <span class="whatsapp-highlight">+31 6 12345678 (WhatsApp)</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Herengracht 123, 1015 BJ Amsterdam</p>
+                    <a href="https://wa.me/31612345678?text=Hallo%20Golden%20Touch%2C%20ik%20wil%20een%20offerte%20voor%20een%20schoonmaakdienst" target="_blank" class="hero-btn" style="margin-top:24px; background:#D4AF37; color:#0A192F; display:inline-flex; gap:10px;"><i class="fab fa-whatsapp"></i> Direct WhatsApp</a>
+                </div>
+                <div class="map" data-animate="slide-right">
+                    <iframe src="https://maps.google.com/maps?q=Amsterdam%20Herengracht&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="final-cta" data-animate="fade-up">
+                <h3>Uw woning verdient perfectie.</h3>
+                <a href="#contact" class="hero-btn btn-glow" style="background: #D4AF37; color:#0A192F; border: none;">Vraag vandaag nog een offerte aan</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Golden Touch Cleaning — Specialistische Reiniging. Alle rechten voorbehouden.</p>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+    <a href="tel:+31201234567" class="float-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/31612345678?text=Hallo%20Golden%20Touch%2C%20ik%20heb%20een%20vraag%20over%20uw%20diensten" class="float-btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-img" src="" alt="service">
+        <div class="modal-body">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+            <ul id="modalBenefits" class="benefits-list"></ul>
+            <a href="#" id="modalWhatsappBtn" class="modal-wa-btn" target="_blank"><i class="fab fa-whatsapp"></i> Direct boeken via WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Services Data with REAL IMAGES mapping
+    const servicesData = [
+        { name: "Gevel Impregneren", short: "Bescherm uw gevel tegen vocht en vuil.", fullDesc: "Gevel impregneren is essentieel voor het beschermen van uw woning tegen weersinvloeden, vocht en vervuiling. Wij gebruiken hoogwaardige impregneermiddelen.", benefits: ["Waterafstotend en ademend", "Voorkomt schimmel en mosvorming", "Verlengt de levensduur", "Bespaart onderhoudskosten"], img: "facade-before-after.jpg.png" },
+        { name: "Hogedrukreiniging", short: "Krachtige reiniging van alle oppervlakken.", fullDesc: "Onze hogedrukreiniging verwijdert hardnekkig vuil, algen en aanslag van terrassen, opritten en muren.", benefits: ["Verwijdert diep vuil", "Ideaal voor buiten", "Snel zichtbaar resultaat", "Verhoogt uitstraling"], img: "brush-wall.png" },
+        { name: "Zonnepanelen Reinigen", short: "Maximaliseer uw energieopbrengst.", fullDesc: "Vuil en stof op zonnepanelen verminderen het rendement. Wij reinigen veilig en effectief.", benefits: ["Tot 15% meer rendement", "Veilig en zonder schade", "Milieuvriendelijk", "Langere levensduur"], img: "solar-cleaning.png" },
+        { name: "Glasbewassing", short: "Streeploos schone ramen.", fullDesc: "Professionele glasbewassing zorgt voor helder zicht en een frisse uitstraling.", benefits: ["Streeploos resultaat", "Inclusief kozijnen", "Regelmatig onderhoud", "Professionele afwerking"], img: "window-before-after.jpg.png" },
+        { name: "Kozijnen Reiniging", short: "Reiniging van kozijnen en randen.", fullDesc: "Kozijnen verzamelen vuil. Wij reinigen grondig voor frisse uitstraling.", benefits: ["Verwijdert hardnekkig vuil", "Beschermt materiaal", "Verbetert uitstraling", "Onderhoudsverlenging"], img: "brush-wall.png" },
+        { name: "Vloeronderhoud", short: "Professioneel onderhoud van vloeren.", fullDesc: "Wij reinigen en onderhouden diverse vloeren met professionele technieken.", benefits: ["Diepe reiniging", "Luxe uitstraling", "Beschermende laag", "Langere levensduur"], img: "facade-before-after.jpg.png" },
+        { name: "Graffiti Verwijderen", short: "Snelle verwijdering zonder schade.", fullDesc: "Graffiti kan de uitstraling aantasten. Wij verwijderen veilig en effectief.", benefits: ["Snelle service", "Veilig voor oppervlak", "Volledig herstel", "Professionele aanpak"], img: "brush-wall.png" }
+    ];
+
+    const servicesGrid = document.getElementById('servicesGrid');
+    function buildServices() {
+        servicesData.forEach((s, idx) => {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.setAttribute('data-animate', 'fade-up');
+            card.style.animationDelay = `${idx * 0.05}s`;
+            card.innerHTML = `<div class="service-img" style="background-image: url('assets/${s.img}'); background-size: cover; background-position: center;"></div><div class="service-info"><h3>${s.name}</h3><p>${s.short}</p></div>`;
+            card.addEventListener('click', () => openModal(s));
+            servicesGrid.appendChild(card);
+        });
+    }
+    buildServices();
+
+    // Modal Logic
+    const modal = document.getElementById('serviceModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalBenefits = document.getElementById('modalBenefits');
+    const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+    function openModal(service) {
+        modalImg.src = `assets/${service.img}`;
+        modalTitle.innerText = service.name;
+        modalDesc.innerText = service.fullDesc;
+        modalBenefits.innerHTML = service.benefits.map(b => `<li>${b}</li>`).join('');
+        modalWhatsappBtn.href = `https://wa.me/31612345678?text=${encodeURIComponent(`Hallo Golden Touch, ik wil graag de dienst "${service.name}" boeken. Kunt u mij een offerte sturen?`)}`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+    document.querySelector('.close-modal').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+
+    // Before After Slider Improved
+    const sliderDiv = document.getElementById('baSlider');
+    const afterDiv = document.getElementById('afterImage');
+    const handle = document.getElementById('sliderHandle');
+    let isDragging = false;
+    function moveSlider(clientX) {
+        const rect = sliderDiv.getBoundingClientRect();
+        let x = clientX - rect.left;
+        if (x < 0) x = 0; if (x > rect.width) x = rect.width;
+        let percent = (x / rect.width) * 100;
+        afterDiv.style.width = percent + '%';
+        handle.style.left = percent + '%';
+    }
+    handle.addEventListener('mousedown', (e) => { isDragging = true; e.preventDefault(); });
+    window.addEventListener('mousemove', (e) => { if(isDragging) moveSlider(e.clientX); });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    handle.addEventListener('touchstart', (e) => { isDragging = true; e.preventDefault(); });
+    window.addEventListener('touchmove', (e) => { if(isDragging && e.touches[0]) moveSlider(e.touches[0].clientX); });
+    window.addEventListener('touchend', () => { isDragging = false; });
+
+    // Sticky Header + Dark Mode
+    const headerEl = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => { headerEl.classList.toggle('scrolled', window.scrollY > 50); });
+
+    const darkToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const prefersDark = localStorage.getItem('darkMode') === 'enabled';
+    if (prefersDark) body.classList.add('dark');
+    darkToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+    if (prefersDark) darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+
+    // Intersection Observer
+    const animatedEls = document.querySelectorAll('[data-animate="fade-up"], [data-animate="slide-left"], [data-animate="slide-right"], .service-card, .advantage-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+    animatedEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+    window.dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
