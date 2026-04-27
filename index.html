@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Golden Touch Cleaning - Specialistische Reiniging. Hoogwaardige schoonmaakdiensten met oog voor detail, kwaliteit en perfectie. Gevel impregneren, hogedrukreiniging, glasbewassing en meer.">
+    <meta name="keywords" content="schoonmaak, gevel impregneren, hogedrukreiniging, glasbewassing, vloeronderhoud, premium cleaning">
+    <meta name="author" content="Golden Touch Cleaning">
+    <meta name="theme-color" content="#0A192F">
+    <title>Golden Touch Cleaning | Specialistische Reiniging</title>
+    
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="mainHeader">
+    <div class="header-inner">
+        <div class="dark-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section - Video behavior unchanged, logo inside hero -->
+    <section class="hero">
+        <iframe class="hero-video"
+            src="https://player.vimeo.com/video/1186258033?background=1&autoplay=1&loop=1&muted=1&byline=0&portrait=0&title=0"
+            allow="autoplay; fullscreen"
+            frameborder="0">
+        </iframe>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+            <img src="assets/logo.png" alt="Golden Touch Cleaning" class="hero-logo" onerror="this.onerror=null; this.src='logo2.png';">
+            <h1 class="hero-title">Golden Touch Cleaning</h1>
+            <p class="hero-sub">Uw woning verdient de gouden afwerking.</p>
+            <a href="#contact" class="hero-btn btn-glow">Vraag een offerte aan</a>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container" data-animate="fade-up">
+            <p class="intro-text">Wij zijn Golden Touch Cleaning.<br>Wij leveren hoogwaardige schoonmaakdiensten met oog voor detail, kwaliteit en perfectie.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services">
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Onze Diensten</h2>
+            <p class="section-subhead" data-animate="fade-up" style="text-align:center;">Premium oplossingen voor elk oppervlak</p>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Premium Advantages -->
+    <section class="premium-advantages">
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Waarom Golden Touch?</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-gem"></i><h4>Premium Kwaliteit</h4><p>Wij gebruiken alleen de beste materialen en technieken voor een perfect resultaat.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-clock"></i><h4>Stipt & Betrouwbaar</h4><p>Op tijd ter plaatse, snelle uitvoering zonder in te leveren op kwaliteit.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-shield-alt"></i><h4>100% Garantie</h4><p>Wij staan achter ons werk met volledige klanttevredenheidsgarantie.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-leaf"></i><h4>Milieubewust</h4><p>Duurzame, milieuvriendelijke reinigingsmiddelen voor een veilige omgeving.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Stats -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 data-animate="fade-up">Onze Expertise in Cijfers</h2>
+            <div class="trust-grid">
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">500+</div><p>tevreden klanten</p></div>
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">24/7</div><p>Snelle service</p></div>
+                <div class="trust-item" data-animate="fade-up"><div class="trust-number">100%</div><p>Garantie</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before After Slider -->
+    <section>
+        <div class="container">
+            <h2 data-animate="fade-up" style="text-align:center;">Voor & Na</h2>
+            <div class="beforeafter-container" data-animate="fade-up">
+                <div class="ba-wrapper" id="baSlider">
+                    <img class="ba-img" src="assets/after-wall1.png" alt="voor">
+                    <div class="ba-img ba-after" id="afterImage"><img src="assets/before-wall2.png" style="width:100%; height:100%; object-fit:cover;" alt="na"></div>
+                    <div class="slider-handle" id="sliderHandle"></div>
+                    <div class="ba-labels">VOOR</div>
+                    <div class="ba-labels right">NA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-animate="fade-up">Neem contact op</h2>
+            <div class="contact-grid">
+                <div class="contact-details" data-animate="slide-left">
+                    <p><i class="fas fa-phone-alt"></i> +31 20 123 4567</p>
+                    <p><i class="fab fa-whatsapp"></i> <span class="whatsapp-highlight">+31 6 12345678 (WhatsApp)</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Herengracht 123, 1015 BJ Amsterdam</p>
+                    <a href="https://wa.me/31612345678?text=Hallo%20Golden%20Touch%2C%20ik%20wil%20een%20offerte%20voor%20een%20schoonmaakdienst" target="_blank" class="hero-btn" style="margin-top:24px; background:#D4AF37; color:#0A192F; display:inline-flex; gap:10px;"><i class="fab fa-whatsapp"></i> Direct WhatsApp</a>
+                </div>
+                <div class="map" data-animate="slide-right">
+                    <iframe src="https://maps.google.com/maps?q=Amsterdam%20Herengracht&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="final-cta" data-animate="fade-up">
+                <h3>Uw woning verdient perfectie.</h3>
+                <a href="#contact" class="hero-btn btn-glow" style="background: #D4AF37; color:#0A192F; border: none;">Vraag vandaag nog een offerte aan</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Golden Touch Cleaning — Specialistische Reiniging. Alle rechten voorbehouden.</p>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+    <a href="tel:+31201234567" class="float-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/31612345678?text=Hallo%20Golden%20Touch%2C%20ik%20heb%20een%20vraag%20over%20uw%20diensten" class="float-btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modalImg" class="modal-img" src="" alt="service">
+        <div class="modal-body">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+            <ul id="modalBenefits" class="benefits-list"></ul>
+            <a href="#" id="modalWhatsappBtn" class="modal-wa-btn" target="_blank"><i class="fab fa-whatsapp"></i> Direct boeken via WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
