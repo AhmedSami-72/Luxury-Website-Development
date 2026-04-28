@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Golden Touch Cleaning - Specialistische Reiniging. Hoogwaardige schoonmaakdiensten met oog voor detail, kwaliteit en perfectie. Gevel impregneren, hogedrukreiniging, glasbewassing en meer.">
-    <meta name="keywords" content="schoonmaak, gevel impregneren, hogedrukreiniging, glasbewassing, vloeronderhoud, premium cleaning">
+    <meta name="description" content="Golden Touch Cleaning – specialist in gevel impregneren, hogedrukreiniging, glasbewassing, zonnepanelen reiniging en vloeronderhoud. Professioneel, betrouwbaar and milieubewust. Vraag nu een vrijblijvende offerte aan!">
+    <meta name="keywords" content="schoonmaak, gevel impregneren, hogedrukreiniging, glasbewassing, zonnepanelen reinigen, vloeronderhoud, dieptereiniging, kozijnen reinigen, rvs reiniging, hout schoonmaken, premium cleaning, Golden Touch Cleaning">
     <meta name="author" content="Golden Touch Cleaning">
     <meta name="theme-color" content="#0A192F">
-    <title>Golden Touch Cleaning | Specialistische Reiniging</title>
+    <title>Golden Touch Cleaning | Specialistische Reiniging & Onderhoud - Gevel, Glas & Zonnepanelen</title>
     
-    <!-- Google Fonts: Playfair Display + Inter -->
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Golden Touch Cleaning | Specialistische Reiniging & Gevelonderhoud">
+    <meta property="og:description" content="Hoogwaardige schoonmaakdiensten met oog voor detail. Gevel impregneren, hogedrukreiniging, glasbewassing en meer. Vraag vrijblijvend offerte aan.">
+    <meta property="og:image" content="assets/logo.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goldentouchcleaning.nl">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assets/logo.webp">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -29,17 +39,21 @@
 </header>
 
 <main>
-    <!-- Hero Section - Video behavior unchanged, logo inside hero -->
-    <section class="hero">
-        <iframe class="hero-video"
-            src="https://player.vimeo.com/video/1186258033?background=1&autoplay=1&loop=1&muted=1&byline=0&portrait=0&title=0"
-            allow="autoplay; fullscreen"
-            frameborder="0">
-        </iframe>
+    <!-- Hero Section -->
+    <section class="hero" id="heroSection"> 
+        <div class="hero-video-container" id="heroVideoContainer"> 
+            <div class="hero-poster" id="heroPoster"></div> 
+            <iframe 
+                src="https://player.vimeo.com/video/1186258033?autoplay=1&muted=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0" 
+                class="hero-video-iframe" 
+                allow="autoplay; fullscreen" 
+                title="Hero Background Video">
+            </iframe>
+        </div> 
         <div class="hero-overlay"></div>
         <div class="hero-vignette"></div>
         <div class="hero-content">
-            <img src="assets/logo.png" alt="Golden Touch Cleaning" class="hero-logo" onerror="this.onerror=null; this.src='logo2.png';">
+            <img src="assets/logo.webp" alt="Golden Touch Cleaning - Specialistische reiniging" class="hero-logo">
             <h1 class="hero-title">Golden Touch Cleaning</h1>
             <p class="hero-sub">Uw woning verdient de gouden afwerking.</p>
             <a href="#contact" class="hero-btn btn-glow">Vraag een offerte aan</a>
@@ -53,12 +67,31 @@
         </div>
     </section>
 
-    <!-- Services Overview -->
+    <!-- NEW: Service Names Section (Blue Navigation) -->
+    <section class="service-names-section">
+        <div class="container">
+            <h2 class="service-names-title">ONZE DIENSTEN</h2>
+            <div class="service-names-list">
+                <a href="#glasbewassing" class="service-nav-item">Glasbewassing</a>
+                <a href="#hogedrukreiniging" class="service-nav-item">Hogedrukreiniger</a>
+                <a href="#dieptereiniging" class="service-nav-item">Dieptereiniging</a>
+                <a href="#kozijn-reinigen" class="service-nav-item">Kozijn reinigen</a>
+                <a href="#hout-schoonmaken" class="service-nav-item">Hout schoonmaken</a>
+                <a href="#vloeronderhoud" class="service-nav-item">Vloeronderhoud</a>
+                <a href="#rvs-reiniging" class="service-nav-item">Rvs reiniging</a>
+                <a href="#zonnepanelen-reinigen" class="service-nav-item">Zonnepanelen reinigen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
     <section id="services">
         <div class="container">
-            <h2 data-animate="fade-up" style="text-align:center;">Onze Diensten</h2>
+            <h2 data-animate="fade-up" style="text-align:center;">Onze Diensten in Detail</h2>
             <p class="section-subhead" data-animate="fade-up" style="text-align:center;">Premium oplossingen voor elk oppervlak</p>
-            <div class="services-grid" id="servicesGrid"></div>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Populated by JavaScript -->
+            </div>
         </div>
     </section>
 
@@ -69,7 +102,7 @@
             <div class="advantages-grid">
                 <div class="advantage-card" data-animate="fade-up"><i class="fas fa-gem"></i><h4>Premium Kwaliteit</h4><p>Wij gebruiken alleen de beste materialen en technieken voor een perfect resultaat.</p></div>
                 <div class="advantage-card" data-animate="fade-up"><i class="fas fa-clock"></i><h4>Stipt & Betrouwbaar</h4><p>Op tijd ter plaatse, snelle uitvoering zonder in te leveren op kwaliteit.</p></div>
-                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-shield-alt"></i><h4>100% Garantie</h4><p>Wij staan achter ons werk met volledige klanttevredenheidsgarantie.</p></div>
+                <div class="advantage-card" data-animate="fade-up"><i class="fas fa-shield-alt"></i><h4>100% Garantie</h4><p>Wij staan achter ons work met volledige klanttevredenheidsgarantie.</p></div>
                 <div class="advantage-card" data-animate="fade-up"><i class="fas fa-leaf"></i><h4>Milieubewust</h4><p>Duurzame, milieuvriendelijke reinigingsmiddelen voor een veilige omgeving.</p></div>
             </div>
         </div>
@@ -93,8 +126,10 @@
             <h2 data-animate="fade-up" style="text-align:center;">Voor & Na</h2>
             <div class="beforeafter-container" data-animate="fade-up">
                 <div class="ba-wrapper" id="baSlider">
-                    <img class="ba-img" src="assets/after-wall1.png" alt="voor">
-                    <div class="ba-img ba-after" id="afterImage"><img src="assets/before-wall2.png" style="width:100%; height:100%; object-fit:cover;" alt="na"></div>
+                    <img class="ba-img" src="assets/after-wall1.webp" alt="Voorbeeld na reiniging" loading="lazy">
+                    <div class="ba-after" id="afterImage">
+                        <img class="ba-img" src="assets/before-wall2.webp" alt="Voorbeeld voor reiniging" loading="lazy">
+                    </div>
                     <div class="slider-handle" id="sliderHandle"></div>
                     <div class="ba-labels">VOOR</div>
                     <div class="ba-labels right">NA</div>
@@ -115,7 +150,7 @@
                     <a href="https://wa.me/31612345678?text=Hallo%20Golden%20Touch%2C%20ik%20wil%20een%20offerte%20voor%20een%20schoonmaakdienst" target="_blank" class="hero-btn" style="margin-top:24px; background:#D4AF37; color:#0A192F; display:inline-flex; gap:10px;"><i class="fab fa-whatsapp"></i> Direct WhatsApp</a>
                 </div>
                 <div class="map" data-animate="slide-right">
-                    <iframe src="https://maps.google.com/maps?q=Amsterdam%20Herengracht&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+                    <iframe src="https://maps.google.com/maps?q=Amsterdam%20Herengracht&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" title="Locatie Golden Touch Cleaning"></iframe>
                 </div>
             </div>
         </div>
@@ -146,7 +181,7 @@
 <div id="serviceModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <img id="modalImg" class="modal-img" src="" alt="service">
+        <img id="modalImg" class="modal-img" src="" alt="service detail" loading="lazy">
         <div class="modal-body">
             <h3 id="modalTitle"></h3>
             <p id="modalDesc"></p>
@@ -156,6 +191,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>
